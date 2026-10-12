@@ -2,7 +2,7 @@
 
 Turn a mechanical wall thermostat's dial from your phone, using an ESP32, a 28BYJ-48 stepper and a 3D-printed clip-on mount. You don't open or rewire the thermostat.
 
-<!-- DEMO VIDEO: drag the video file here in GitHub's web editor. -->
+https://github.com/user-attachments/assets/8661883c-a63f-48c8-9f15-81347920d3a2
 
 ![Installed on the thermostat](docs/images/installed.jpg)
 
