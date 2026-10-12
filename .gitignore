@@ -1,0 +1,22 @@
+# Local firmware config (Wi-Fi credentials, OTA password)
+firmware/**/config.h
+secrets.h
+
+# Arduino / PlatformIO build output
+build/
+.pio/
+*.bin
+*.elf
+*.map
+
+# OpenSCAD / slicer scratch
+*.3mf
+*.gcode
+cad/*.stl
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+__pycache__/
