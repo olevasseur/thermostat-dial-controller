@@ -6,13 +6,29 @@ https://github.com/user-attachments/assets/8661883c-a63f-48c8-9f15-81347920d3a2
 
 ![Installed on the thermostat](docs/images/installed.jpg)
 
-![Mount assembly (CAD preview)](docs/images/assembly.png)
-
 ## How it works
 
 A printed frame hangs from the thermostat's top vents on two clips, and a bottom slider clip stops it rotating. A hinged motor plate on the frame presses a 20 mm friction wheel onto the rim of the thermostat dial, and a rubber band adds the extra pressure. The ESP32 serves a small web page on your Wi-Fi network. Each button press moves the wheel a capped number of steps and then turns the motor coils off.
 
 The thermostat stays in its original enclosure. Nothing touches its wiring.
+
+## The mount
+
+The mount was the hardest part. It has to:
+
+- hold the motor's wheel against the dial rim with steady pressure;
+- hang from the thermostat without drilling, adhesive or opening the case.
+
+Two clips hook into the top vents and carry the frame's top rail. A bottom slider clip hooks into a bottom vent, so the frame can't swing. The motor plate pivots on an M3 pin at the left, level with the top of the dial. Gravity and a rubber band press the 20 mm wheel down onto the dial rim. Because the plate pivots, it absorbs small differences in dial position. A ledge on the right stops the plate dropping when the wheel is lifted off.
+
+| | |
+|---|---|
+| ![Mount on the thermostat, front view](docs/images/cad_mount_front.png) | ![Mount from above: motor plate, wheel on the dial](docs/images/cad_mount_top.png) |
+| On the thermostat (transparent stand-in) | From above: the motor plate and the wheel on the dial |
+| ![Mount from the wall side, wheel visible](docs/images/cad_mount_wall_side.png) | ![Bottom slider clip hooked into a bottom vent](docs/images/cad_bottom_slider_clip.png) |
+| From the wall side: wheel, hinge pin nut trap and standoff pads | Bottom slider clip (blue) hooked into a vent |
+
+The renders come from [`cad/preview.scad`](cad/preview.scad) and the `assembly` part of `thermostat_bottom_slider_clip_v0_1.scad`. The motor is a transparent stand-in.
 
 ## Parts list
 
@@ -50,6 +66,7 @@ openscad -o mount.stl  -D 'part="mount_plate"'  thermostat_wheel_drive_mount_v0_
 openscad -o clips.stl  -D 'part="clips_plate"'  thermostat_front_clip_v0_5.scad
 openscad -o slider.stl -D 'part="slider_print"' thermostat_bottom_slider_clip_v0_1.scad
 openscad -D 'part="assembly"' thermostat_wheel_drive_mount_v0_2.scad   # preview
+openscad -D 'part="installed"' preview.scad                        # README pictures
 ```
 
 Each file also has `*_collision` parts, which must render empty.
@@ -141,7 +158,7 @@ cad/                        OpenSCAD sources (+ cad/lib shared geometry)
 stl/                        Ready-to-print STL files
 docs/wiring.md              Parts list and pin connections
 docs/demo.mp4               Demo video
-docs/images/                Photo of the installed unit + CAD preview
+docs/images/                Photo of the installed unit + CAD renders
 ```
 
 ## License
